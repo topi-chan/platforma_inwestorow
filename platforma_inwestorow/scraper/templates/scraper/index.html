@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Mailing nowości dotacyjnych</title>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+</head>
+<body>
+  <div class="hero bg-primary">
+    <div class="hero-body">
+      <h1 style="text-align: center;">Wyszukiwarka nowości dotacyjnych</h1>
+      <p style="text-align: center;">Wybierz interesującą Cię agencję i podaj e-mail.
+      <br>Poinformujemy Cię kiedy zostaną dodane nowe informacje dotyczące konkursów/granatów.</p>
+    </div>
+  </div>
+<br><br>
+<div class="container">
+  <div class="columns">
+    <div class="column col-lg-auto col-6">
+<p>
+<span class="label label-primary">Wybierz instytucję</span>
+  <form method="POST" action="mailing_assign" >{% csrf_token %}
+    <div class="form-group">
+      <label class="form-checkbox form-inline">
+        <input type="checkbox" name="ncbr" value="NCBR"><i class="form-icon"></i> NCBR
+      </label>
+      <label class="form-checkbox form-inline">
+        <input type="checkbox" name="rposl" value="RPOSL" checked=""><i class="form-icon"></i> RPOSL
+      </label>
+      <label class="form-checkbox form-inline">
+        <input type="checkbox" name="parp" value="PARP" checked=""><i class="form-icon"></i> PARP
+      </label>
+      </select>
+    </div>
+
+      </div>
+        <div class="form-group">
+          <div class="col-9 col-sm-12">
+            <input class="form-input" name="user-email" type="text" id="input-example-1" placeholder="E-mail">
+            <button class="btn" type="submit">Zapisz się</button>
+          </div>
+        </div>
+      </form>
+<br><br><p style="color: red;font-size:36px"><b>{{error}}</b></p>
+<br><br><p style="color: green;font-size:36px"><b>{{success}}</b></p>
+</body>
+</html>
